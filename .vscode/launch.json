@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Uvicorn (FastAPI)",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "app.main:app",       // Path to your app: main.py file and app variable
+                "--reload",       // Automatically reload on changes
+                "--host", "127.0.0.1",
+                "--port", "8000"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        }
+    ]
+}
+
