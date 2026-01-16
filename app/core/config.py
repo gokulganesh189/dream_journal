@@ -4,25 +4,27 @@
 """
 from pydantic_settings import BaseSettings
 from pydantic import Field
+import os
+
+
+ENV = os.environ.get("ENV", "local")
 
 
 class Settings(BaseSettings):
-    app_name: str = Field(default="DreamJournalAPI")
-    env: str = Field(default="dev")
-    api_v1_str: str = Field(default="/api/v1")
-
+    app_name: str = "DreamJournalAPI"
+    env: str = ENV
+    api_v1_str: str = "/api/v1"
 
     secret_key: str
-    algorithm: str = Field(default="HS256")
-    access_token_expire_minutes: int = Field(default=60)
-
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int = 60
 
     sqlalchemy_database_uri: str
-    media_dir: str = Field(default="./media")
-
+    media_dir: str = "./media"
 
     class Config:
-        env_file = ".env"
+        env_file = f".env.{ENV}"
+        env_file_encoding = "utf-8"
 
 
 settings = Settings()

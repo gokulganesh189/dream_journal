@@ -12,8 +12,8 @@ from app.api.v1 import comments as comments_router
 from app.api.v1 import likes as likes_router
 from app.middleware.logging_middleware import RequestResponseLoggingMiddleware
 
-# Create tables if not using Alembic (demo convenience)
-Base.metadata.create_all(bind=engine)
+# # Create tables if not using Alembic (demo convenience)
+# Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(title=settings.app_name)
