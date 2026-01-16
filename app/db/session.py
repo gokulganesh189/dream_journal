@@ -12,8 +12,10 @@ os.makedirs(settings.media_dir, exist_ok=True)
 
 
 engine = create_engine(
-settings.sqlalchemy_database_uri,
-connect_args={"check_same_thread": False} if settings.sqlalchemy_database_uri.startswith("sqlite") else {},
+    settings.sqlalchemy_database_uri,
+    pool_pre_ping=True,          # prevents stale connections
+    pool_size=5,                 # safe default
+    max_overflow=10,
 )
 
 
