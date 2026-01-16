@@ -6,7 +6,12 @@ pydantic-settings==2.4.0
 SQLAlchemy==2.0.34
 uvicorn[standard]==0.30.5
 passlib[bcrypt]==1.7.4
+passlib[argon2]
 PyJWT==2.9.0
 python-multipart==0.0.9
+
+# PostgreSQL driver (REQUIRED)
+psycopg2-binary==2.9.9
+
+# Optional (keep only if MySQL still used somewhere)
 pymysql==1.1.2
-passlib[argon2]
